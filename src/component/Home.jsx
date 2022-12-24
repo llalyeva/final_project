@@ -1,7 +1,8 @@
 import React from "react";
-
+import Product from "./Product";
 const Home = () => {
     return (
+        <>
         <div className="hero">
             <div className="card text-bg-dark">
                 <img src="/assets/bg.jpg" className="card-img" alt="background" height="700px" />
@@ -13,6 +14,8 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        <Product/>
+        </>
     )
 }
 

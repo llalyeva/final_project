@@ -2,14 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './component/Navbar';
 import Home from './component/Home';
-import Product from './component/Product.jsx';
+import Product from './component/Product';
+import {Routes, Route} from 'react-router-dom';
+import { Router } from 'react-router-dom';
+
 function App() {
   return (
+    
     <div className="App">
      <Navbar/>
-     <Home/>
-     <Product/>
+      <Routes>
+      <Route exact path ="/" element={<Home/>}/>
+      <Route exact path = "/products" element= {<Product/>}/>
+      </Routes>
     </div>
+    
   );
 }
 
