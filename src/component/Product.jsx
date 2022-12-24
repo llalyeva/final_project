@@ -25,15 +25,22 @@ const Product = () => {
        
     },[])
 
+   const organize = (str) => {
+     let updated = data.filter((a)=> a.category === str)
+     setFilter(updated);
+   }
+
+
+
     const ShowProduct = () => {
         return (
             <>
                 <div className="buttons">
-                    <button className="btn btn-outline-dark me-2 mb-2" >Все</button>
-                    <button className="btn btn-outline-dark me-2 mb-2"> Мужская одежда </button>
-                    <button className="btn btn-outline-dark me-2 mb-2"> Женская одежда</button>
-                    <button className="btn btn-outline-dark me-2 mb-2"> Украшения</button>
-                    <button className="btn btn-outline-dark me-2 mb-2"> Электроника </button>
+                    <button className="btn btn-outline-dark me-2 mb-2" onClick = {()=> setFilter(data)} >All</button>
+                    <button className="btn btn-outline-dark me-2 mb-2" onClick = {()=> organize("men's clothing")}> Men`s clothing </button>
+                    <button className="btn btn-outline-dark me-2 mb-2" onClick = {()=> organize("women's clothing")}> Women`s clothing</button>
+                    <button className="btn btn-outline-dark me-2 mb-2" onClick = {()=> organize("jewelery")}> Jewelery</button>
+                    <button className="btn btn-outline-dark me-2 mb-2" onClick = {()=> organize("electronics")}> Electronics </button>
                 </div>
                 {
                     filter.map((product) => {
@@ -45,7 +52,7 @@ const Product = () => {
                                         <div className="card-body">
                                             <h5 className="card-title mb-0">{product.title.substring(0,12)}</h5>
                                             <p className="card-text lead fw-bold"> ${product.price}</p>
-                                            <a href="#" className="btn btn-outline-dark">Купить</a>
+                                            <a href="#" className="btn btn-outline-dark">Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,12 +71,12 @@ const Product = () => {
             <div className="container my-5 py-5">
                 <div className="row">
                     <div className="col-12 mb-5">
-                        <h1 className="display-6 fw-bolder text-center">Последние продукции</h1>
+                        <h1 className="display-6 fw-bolder text-center">Latest goods</h1>
                         <hr />
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    {loading ? (<p> ... Идет загрузка </p>) : <ShowProduct />}
+                    {loading ? (<p> ... Loading </p>) : <ShowProduct />}
                 </div>
             </div>
 
