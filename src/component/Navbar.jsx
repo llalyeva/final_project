@@ -1,34 +1,38 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import handleCart from "../redux/reducers/handleCart";
+
 
 
 const Navbar = () => {
+    const a = useSelector((state) => state.handleCart);
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
-                <div class="container">
-                    <NavLink class="navbar-brand fw-bold fs-4" to="/"> My collection </NavLink>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+                <div className="container">
+                    <NavLink className="navbar-brand fw-bold fs-4" to="/"> My collection </NavLink>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <NavLink class="navbar-brand" aria-current="page" to="/">Home</NavLink>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <NavLink className="navbar-brand" aria-current="page" to="/">Home</NavLink>
                             </li>
-                            <li class="nav-item">
-                                <NavLink class="navbar-brand" to="/products">Products</NavLink>
+                            <li className="nav-item">
+                                <NavLink className="navbar-brand" to="/products">Products</NavLink>
                             </li>
-                            <li class="nav-item">
-                                <NavLink class="navbar-brand" to="/about">About</NavLink>
+                            <li className="nav-item">
+                                <NavLink className="navbar-brand" to="/about">About</NavLink>
                             </li>
-                            <li class="nav-item">
-                                <NavLink class="navbar-brand" to="/contacts">Contacts</NavLink>
+                            <li className="nav-item">
+                                <NavLink className="navbar-brand" to="/contacts">Contacts</NavLink>
                             </li>
                         </ul>
                         <div className="buttons">
                             <NavLink to="/cart" className="btn btn-outline-dark ms-2">
-                                <i className="fa fa-shopping-cart  me-1"></i>Cart (0) </NavLink>
+                                <i className="fa fa-shopping-cart  me-1"></i>Cart ({a.length}) </NavLink>
                         </div>
                     </div>
                 </div>
