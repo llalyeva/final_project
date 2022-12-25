@@ -34,7 +34,7 @@ const ShowProduct = () => {
     return (
         <>
         <div className="col-md-6" >
-            <img src={data.image} alt={data.title} height="400px" width="380px"/>
+            <img className="image" src={data.image} alt={data.title} height="400px" width="380px"/>
         </div>
         <div className="col-md-6">
             <h4 className="text-uppercase text-black-50">{data.category}</h4>
