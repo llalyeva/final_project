@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import handleCart from "../redux/reducers/handleCart";
+import { act } from "react-dom/test-utils";
 
 
 

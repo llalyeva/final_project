@@ -5,7 +5,8 @@ import Home from './component/Home';
 import Product from './component/Product';
 import {Routes, Route} from 'react-router-dom';
 import Item from './component/Item';
-import Cart from './component/Cart'
+import Cart from './component/Cart';
+
 
 function App() {
   return (

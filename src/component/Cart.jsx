@@ -3,19 +3,16 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import addCart from "../redux/actions";
 import delCart from "../redux/actions/deleteaction";
-
+import { NavLink } from "react-router-dom";
 let temp;
-let sum = 0;
+
 
 const Cart = () => {
-
     const a = useSelector((state) => state.handleCart);
-
+    
     const [product, getProduct] = useState([]);
     const [empty, notEmpty] = useState(true);
     const [dontDel, del] = useState(false);
-    const [but, showBut] = useState(false);
-
     const dispatch = useDispatch();
 
     const plus = (product) => {
@@ -30,27 +27,20 @@ const Cart = () => {
         if (b !== 1) dispatch(delCart(product));
     }
 
-    const remove = (product) => {
-        dispatch(delCart(product));
-    }
-    const getaway = () => {
-        del(true);
-    }
-
     useEffect(() => {
-        getProduct(a);
 
-        if (a.length == 0)
+        getProduct(a);
+  
+
+        if (a.length === 0)
          {
             notEmpty(true);
-            showBut(false);
+            
         }
         else
          { 
-         product.forEach((x)=> sum += x.qty*x.price);
-         console.log(sum);
         notEmpty(false);
-        showBut(true); }
+         }
     })
 
     const ShowProduct = () => {
@@ -105,19 +95,9 @@ const Cart = () => {
     }
 
     return (
-        <>
+        <>  
             {empty ? (<h1 className="my-5"> Your cart is empty</h1>) : <ShowProduct />}
-            {/* {but ? (
-                    <div className="lalacard">
-                        <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4"> Your order </h4>
-                            <p>{sum}</p>
-                            <button  class="btn btn-outline-dark me-5"> oformit zakaz </button>
-                           
-                        </div>
-                    </div>
-                    </div>) : (<></>)} */}
+            
         </>
     )
 

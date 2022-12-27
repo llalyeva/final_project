@@ -50,6 +50,12 @@
  margin-top: 150px;
   z-index: 1;
 }
+.vudicard {
+  display: flex;
+ margin-left: 1310px;
+  position: fixed;
+  z-index: 1;
+}
 
 
 @media screen and (max-width:992px) and (min-width:330px){
