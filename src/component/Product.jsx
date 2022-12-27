@@ -48,8 +48,8 @@ const Product = () => {
                     filter.map((product) => {
                         return (
                             <>
-                                <div className="col-md-3 mb-4">
-                                    <div className="card h-100 text-center p-4" key={product.id}>
+                                <div className="col-md-3 mb-4 a">
+                                    <div className="card h-100 text-center p-4 a" key={product.id}>
                                         <img src={product.image} className="card-img-top" alt="img" height="270px" />
                                         <div className="card-body">
                                             <h5 className="card-title mb-0">{product.title.substring(0,12)}</h5>
